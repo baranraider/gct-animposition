@@ -28,8 +28,8 @@ end
 
 RegisterNetEvent("gct-animposition:client:syncPlayer", function(target, coords, heading, alpha)
     local targetId = GetPlayerFromServerId(target)
-    if PlayerId() ~= targetId then
-        local targetPed = GetPlayerPed(targetId)
+    local targetPed = GetPlayerPed(targetId)
+    if targetId ~= nil and targetPed ~= nil and PlayerPedId() ~= targetPed then
         SetEntityCoordsNoOffset(targetPed, coords.x, coords.y, coords.z, true, true)
         SetEntityHeading(targetPed, heading)
 
